@@ -1,198 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrainerKit – Indoor Cycling Training App</title>
-    <meta name="description" content="TrainerKit connects to your smart trainer for structured indoor cycling workouts. Multi-athlete support, FTP-based training, Strava & Intervals.icu integration.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="TrainerKit connects to your smart trainer for structured indoor cycling workouts. Multi-athlete support, FTP-based training, Strava & Intervals.icu integration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <div class="container header-inner">
-            <a href="/" class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <span class="logo-text">TrainerKit</span>
-            </a>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="#integrations">Integrations</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="support.html">Support</a>
-            </nav>
-        </div>
+      <div class="container header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+          </div>
+          <span class="logo-text">TrainerKit</span>
+        </a>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#integrations">Integrations</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Structured training for<br><span>smart trainers</span></h1>
-                <p>TrainerKit connects to your indoor cycling trainer via Bluetooth for FTP-based structured workouts. Multi-athlete support, workout library, and seamless uploads to your favorite platforms.</p>
-                <div class="badge">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/>
-                    </svg>
-                    Available for macOS
-                </div>
+      <section class="hero">
+        <div class="container">
+          <h1>Structured training for<br /><span>smart trainers</span></h1>
+          <p>
+            TrainerKit connects to your indoor cycling trainer via Bluetooth for
+            FTP-based structured workouts. Multi-athlete support, workout
+            library, Workout builder, and seamless exports of completed
+            workouts.
+          </p>
+          <div class="badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"
+              />
+            </svg>
+            Available for macOS
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="container">
+          <div class="section-label">Features</div>
+          <h2 class="section-title">Built for serious training</h2>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"
+                  />
+                </svg>
+              </div>
+              <h3>Smart Trainer Control</h3>
+              <p>
+                Bluetooth connectivity to control resistance on your smart
+                trainer in real-time during structured workouts.
+              </p>
             </div>
-        </section>
 
-        <section class="section" id="features">
-            <div class="container">
-                <div class="section-label">Features</div>
-                <h2 class="section-title">Built for serious training</h2>
-                
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
-                        </div>
-                        <h3>Smart Trainer Control</h3>
-                        <p>Bluetooth connectivity to control resistance on your smart trainer in real-time during structured workouts.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <h3>Multi-Athlete Support</h3>
-                        <p>Individual profiles with separate FTP values, workout histories, and platform connections for each athlete.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                        </div>
-                        <h3>Workout Library</h3>
-                        <p>Stock templates for endurance, sweet spot, threshold, VO2max, and more. Create custom workouts with the built-in editor.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-                        </div>
-                        <h3>FTP-Based Zones</h3>
-                        <p>Workouts defined as percentage of FTP. Power targets adjust automatically when you switch athletes or update your FTP.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        </div>
-                        <h3>FTP Testing</h3>
-                        <p>Built-in ramp test protocol to measure your functional threshold power with guided execution and result tracking.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                        </div>
-                        <h3>Workout History</h3>
-                        <p>Complete history of completed workouts with metrics including TSS, normalized power, and performance data.</p>
-                    </div>
-                </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3>Multi-Athlete Support</h3>
+              <p>
+                Individual profiles with separate FTP values, workout histories,
+                and platform connections for each athlete.
+              </p>
             </div>
-        </section>
 
-        <section class="section section-bordered" id="integrations">
-            <div class="container">
-                <div class="section-label">Integrations</div>
-                <h2 class="section-title">Sync with your platforms</h2>
-                
-                <div class="integration-list">
-                    <div class="integration-item">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+              <h3>Workout Library</h3>
+              <p>
+                Stock templates for endurance, sweet spot, threshold, VO2max,
+                and more. Create custom workouts with the built-in editor.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 20V10" />
+                  <path d="M18 20V4" />
+                  <path d="M6 20v-4" />
+                </svg>
+              </div>
+              <h3>FTP-Based Zones</h3>
+              <p>
+                Workouts defined as percentage of FTP. Power targets adjust
+                automatically when you switch athletes or update your FTP.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </div>
+              <h3>FTP Testing</h3>
+              <p>
+                Built-in ramp test protocol to measure your functional threshold
+                power with guided execution and result tracking.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <h3>Workout History</h3>
+              <p>
+                Complete history of completed workouts with metrics including
+                TSS, normalized power, and performance data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-bordered" id="integrations">
+        <div class="container">
+          <div class="section-label">Integrations</div>
+          <h2 class="section-title">Sync with your platforms</h2>
+
+          <div class="integration-list">
+            <!-- <div class="integration-item">
                         <svg width="28" height="28" viewBox="0 0 64 64" fill="#FC4C02">
                             <path d="M41.03 47.852l-5.572-10.976h-8.172L41.03 64l13.736-27.124h-8.18l-5.556 10.976zm-18.395-27.15h11.208L20.958 0 8 20.702h7.898l5.06-9.14 5.065 9.14h-.388zm4.71 9.15h10.27l-5.14-10.263-5.13 10.263z"/>
                         </svg>
                         <span>Strava</span>
-                    </div>
-                    <div class="integration-item">
-                        <svg width="28" height="28" viewBox="0 0 100 100" fill="#4A90D9">
-                            <circle cx="50" cy="50" r="45" stroke="#4A90D9" stroke-width="8" fill="none"/>
-                            <text x="50" y="62" text-anchor="middle" font-size="28" font-weight="bold" fill="#4A90D9">icu</text>
-                        </svg>
-                        <span>Intervals.icu</span>
-                    </div>
-                    <div class="integration-item">
+                    </div> -->
+            <div class="integration-item">
+              <svg width="28" height="28" viewBox="0 0 100 100" fill="#4A90D9">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  stroke="#4A90D9"
+                  stroke-width="8"
+                  fill="none"
+                />
+                <text
+                  x="50"
+                  y="62"
+                  text-anchor="middle"
+                  font-size="28"
+                  font-weight="bold"
+                  fill="#4A90D9"
+                >
+                  icu
+                </text>
+              </svg>
+              <span>Intervals.icu</span>
+            </div>
+            <!-- <div class="integration-item">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2">
                             <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7.03 7.03 0 0 0-1.62-.94l-.36-2.54a.49.49 0 0 0-.49-.41h-3.84a.49.49 0 0 0-.49.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.49.49 0 0 0 .12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.49.37 1.03.7 1.62.94l.36 2.54c.05.24.26.41.49.41h3.84c.24 0 .44-.17.49-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.49.49 0 0 0-.12-.61l-2.03-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
                         </svg>
                         <span>Apple Health</span>
-                    </div>
-                    <div class="integration-item">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2">
-                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                        <span>FIT Export</span>
-                    </div>
-                </div>
+                    </div> -->
+            <div class="integration-item">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#007AFF"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"
+                />
+                <path d="M12 6v6l4 2" />
+              </svg>
+              <span>FIT Export</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="section section-bordered">
-            <div class="container">
-                <div class="section-label">Details</div>
-                <h2 class="section-title">Technical specifications</h2>
-                
-                <div class="specs-grid">
-                    <div class="spec-group">
-                        <h4>Platforms</h4>
-                        <ul>
-                            <li>macOS 14 Sonoma or later</li>
-                            <li>iOS <code>coming soon</code></li>
-                            <li>watchOS <code>coming soon</code></li>
-                            <li>tvOS <code>coming soon</code></li>
-                        </ul>
-                    </div>
-                    <div class="spec-group">
-                        <h4>Connectivity</h4>
-                        <ul>
-                            <li>Bluetooth Low Energy (BLE)</li>
-                            <li>FTMS trainer protocol</li>
-                            <li>Power meter support</li>
-                            <li>Heart rate monitors</li>
-                        </ul>
-                    </div>
-                    <div class="spec-group">
-                        <h4>Training Zones</h4>
-                        <ul>
-                            <li>Active Recovery</li>
-                            <li>Endurance</li>
-                            <li>Tempo / Sweet Spot</li>
-                            <li>Threshold / VO2max</li>
-                        </ul>
-                    </div>
-                    <div class="spec-group">
-                        <h4>Data & Privacy</h4>
-                        <ul>
-                            <li>Local data storage</li>
-                            <li>Optional cloud sync</li>
-                            <li>FIT file export</li>
-                            <li>No account required</li>
-                        </ul>
-                    </div>
-                </div>
+      <section class="section section-bordered">
+        <div class="container">
+          <div class="section-label">Details</div>
+          <h2 class="section-title">Technical specifications</h2>
+
+          <div class="specs-grid">
+            <div class="spec-group">
+              <h4>Platforms</h4>
+              <ul>
+                <li>macOS 14 Sonoma or later</li>
+                <li>iOS <code>coming soon</code></li>
+                <li>watchOS <code>coming soon</code></li>
+                <li>tvOS <code>coming soon</code></li>
+              </ul>
             </div>
-        </section>
+            <div class="spec-group">
+              <h4>Connectivity</h4>
+              <ul>
+                <li>Bluetooth Low Energy (BLE)</li>
+                <li>FTMS trainer protocol</li>
+                <li>Power meter support</li>
+                <li>Heart rate monitors</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h4>Training Zones</h4>
+              <ul>
+                <li>Active Recovery / Endurance</li>
+                <li>Tempo / Sweet Spot</li>
+                <li>Threshold / VO2max</li>
+                <li>Neuromuscular / Enduro</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h4>Data & Privacy</h4>
+              <ul>
+                <li>Local data storage</li>
+                <!-- <li>Optional cloud sync</li> -->
+                <li>FIT file export</li>
+                <li>No account required</li>
+                <li>No Subscription required</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="support.html">Support</a>
-                <a href="https://github.com/mwhaley/TrainerKit">GitHub</a>
-            </div>
-            <p>&copy; 2025 TrainerKit. Built with Swift for Apple platforms.</p>
+      <div class="container">
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="support.html">Support</a>
+          <a href="https://github.com/mwhaley/TrainerKit">GitHub</a>
         </div>
+        <p>&copy; 2026 TrainerKit. Built with Swift for Apple platforms.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
