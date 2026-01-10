@@ -1,1 +1,0 @@
-# mdwhaley.github.io
