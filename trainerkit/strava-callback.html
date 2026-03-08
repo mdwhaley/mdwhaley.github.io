@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strava Authorization – TrainerKit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .callback-wrapper {
+        min-height: calc(100vh - 160px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 24px;
+      }
+      .callback-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 48px 40px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+      }
+      .callback-card h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .callback-card .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+      }
+      .status-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 36px;
+      }
+      .status-icon.success {
+        background: rgba(76, 175, 80, 0.15);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        color: #4caf50;
+      }
+      .status-icon.error {
+        background: rgba(244, 67, 54, 0.15);
+        border: 1px solid rgba(244, 67, 54, 0.3);
+        color: #f44336;
+      }
+      .code-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+      .code-box {
+        background: rgba(255, 128, 0, 0.08);
+        border: 1px solid rgba(255, 128, 0, 0.25);
+        border-radius: var(--radius);
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+      .code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--orange);
+        word-break: break-all;
+        user-select: all;
+        cursor: pointer;
+      }
+      .callback-instructions {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .button-row {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        text-decoration: none;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--orange-dim);
+      }
+      .btn-secondary {
+        background: var(--bg-card-hover);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+      }
+      .btn-secondary:hover {
+        border-color: #3f3f46;
+      }
+      .btn.copied {
+        background: #4caf50 !important;
+      }
+      .redirect-note {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 24px;
+        line-height: 1.5;
+      }
+      .strava-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+      }
+      .strava-badge svg {
+        width: 20px;
+        height: 20px;
+      }
+      .strava-badge span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+      .error-message {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+          </div>
+          <span class="logo-text">TrainerKit</span>
+        </a>
+        <a href="/" class="back-link">&larr; Back to home</a>
+      </div>
+    </header>
+
+    <div class="callback-wrapper">
+      <!-- Success state -->
+      <div class="callback-card" id="success-container">
+        <div class="status-icon success">&#x2713;</div>
+        <h1>Strava Connected</h1>
+        <p class="subtitle">Authorization successful</p>
+
+        <p class="code-label">Your authorization code</p>
+        <div class="code-box">
+          <div class="code" id="auth-code" onclick="copyCode()">Loading...</div>
+        </div>
+
+        <p class="callback-instructions" id="instructions">
+          Returning you to TrainerKit...
+        </p>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" id="copy-btn" onclick="copyCode()">
+            Copy Code
+          </button>
+          <a class="btn btn-primary" id="open-btn" href="#">Open TrainerKit</a>
+        </div>
+
+        <p class="redirect-note" id="redirect-note"></p>
+
+        <div class="strava-badge">
+          <svg viewBox="0 0 64 64" fill="#FC4C02">
+            <path
+              d="M41.03 47.852l-5.572-10.976h-8.172L41.03 64l13.736-27.124h-8.18l-5.556 10.976zm-18.395-27.15h11.208L20.958 0 8 20.702h7.898l5.06-9.14 5.065 9.14h-.388zm4.71 9.15h10.27l-5.14-10.263-5.13 10.263z"
+            />
+          </svg>
+          <span>Powered by Strava</span>
+        </div>
+      </div>
+
+      <!-- Error state -->
+      <div class="callback-card" id="error-container" style="display: none">
+        <div class="status-icon error">&#x2715;</div>
+        <h1>Authorization Failed</h1>
+        <p class="subtitle">Strava connection was not completed</p>
+
+        <p class="error-message" id="error-message">
+          Authorization was denied. Please try again from TrainerKit.
+        </p>
+
+        <div class="strava-badge">
+          <svg viewBox="0 0 64 64" fill="#FC4C02">
+            <path
+              d="M41.03 47.852l-5.572-10.976h-8.172L41.03 64l13.736-27.124h-8.18l-5.556 10.976zm-18.395-27.15h11.208L20.958 0 8 20.702h7.898l5.06-9.14 5.065 9.14h-.388zm4.71 9.15h10.27l-5.14-10.263-5.13 10.263z"
+            />
+          </svg>
+          <span>Powered by Strava</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 TrainerKit</p>
+      </div>
+    </footer>
+
+    <script>
+      function getUrlParam(param) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      function copyCode() {
+        var code = document.getElementById("auth-code").textContent;
+        navigator.clipboard.writeText(code).then(function () {
+          var btn = document.getElementById("copy-btn");
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(function () {
+            btn.textContent = "Copy Code";
+            btn.classList.remove("copied");
+          }, 2000);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var code = getUrlParam("code");
+        var error = getUrlParam("error");
+
+        if (error) {
+          document.getElementById("success-container").style.display = "none";
+          document.getElementById("error-container").style.display = "block";
+          var errorDesc =
+            getUrlParam("error_description") || "Authorization was denied.";
+          document.getElementById("error-message").textContent = errorDesc;
+          return;
+        }
+
+        if (!code) {
+          document.getElementById("success-container").style.display = "none";
+          document.getElementById("error-container").style.display = "block";
+          document.getElementById("error-message").textContent =
+            "No authorization code received. Please try again from TrainerKit.";
+          return;
+        }
+
+        // Show the code
+        document.getElementById("auth-code").textContent = code;
+
+        // Build the custom URL scheme link
+        var appUrl = "trainerkit://strava?code=" + encodeURIComponent(code);
+        document.getElementById("open-btn").href = appUrl;
+
+        // Update instructions
+        document.getElementById("instructions").textContent =
+          "Returning you to TrainerKit...";
+        document.getElementById("redirect-note").textContent =
+          'If TrainerKit did not open, tap "Open TrainerKit" or enter the code manually on Apple TV.';
+
+        // Auto-redirect after a brief delay so the page renders first
+        setTimeout(function () {
+          window.location.href = appUrl;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
