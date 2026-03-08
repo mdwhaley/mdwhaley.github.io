@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
           </div>
           <span class="logo-text">TrainerKit</span>
         </a>
-        <a href="/" class="back-link">← Back to home</a>
+        <a href="/" class="back-link">&larr; Back to home</a>
       </div>
     </header>
 
@@ -37,12 +37,21 @@
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-          <h3>Which trainers are compatible with TrainerKit?</h3>
+          <h3>Which devices does TrainerKit support?</h3>
+          <p>
+            TrainerKit runs on Mac (macOS 14+), iPhone and iPad (iOS 17+), and
+            Apple TV (tvOS 17+). The Apple Watch companion app (watchOS 10+)
+            pairs with iPhone to deliver live heart rate during indoor rides.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Which trainers are compatible?</h3>
           <p>
             TrainerKit works with any smart trainer that supports the Bluetooth
             FTMS (Fitness Machine Service) protocol. This includes most trainers
-            from Wahoo, Tacx, Elite, Saris, and other major brands manufactured
-            in recent years.
+            from Wahoo, Tacx, Elite, Saris, and other major brands. Standalone
+            power meters and heart rate monitors are also supported.
           </p>
         </div>
 
@@ -52,17 +61,49 @@
             Make sure your trainer is powered on and not connected to another
             app. In TrainerKit, go to the Trainer section and tap "Scan for
             Trainer". Your trainer should appear in the list within a few
-            seconds. Tap to connect.
+            seconds. TrainerKit automatically detects whether you've connected a
+            smart trainer or a standalone power meter.
           </p>
         </div>
 
         <div class="faq-item">
-          <h3>Can multiple people use TrainerKit?</h3>
+          <h3>Can I ride outdoors with TrainerKit?</h3>
           <p>
-            Yes! TrainerKit supports multiple athlete profiles. Each athlete has
-            their own FTP, weight, workout history, and platform connections
-            (Strava, Intervals.icu). Switch between athletes from the profile
-            selector.
+            Yes! On iPhone, you can take structured workouts outside with GPS
+            tracking and audio coaching, or start an outdoor free ride. GPS
+            accuracy adjusts automatically based on your speed to optimize
+            battery life.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What are GPX routes?</h3>
+          <p>
+            GPX routes let you ride real-world courses on your indoor trainer.
+            Load a GPX file and your trainer automatically adjusts resistance to
+            match the elevation profile — climbs get harder, descents get
+            easier. You can also choose surface types that add realistic rolling
+            resistance.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do training plans work?</h3>
+          <p>
+            Training plans provide a periodized schedule of workouts on a
+            calendar. Follow the plan day by day, and it adapts automatically if
+            you miss workouts or need adjustments. Plans sync across all your
+            devices via iCloud.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does iCloud sync work?</h3>
+          <p>
+            Your ride history, workouts, training plans, and athlete profiles
+            sync automatically across all your devices signed into the same
+            iCloud account. Data is stored in your private iCloud container — it
+            is never shared with us or any third party.
           </p>
         </div>
 
@@ -71,18 +112,40 @@
           <p>
             All workout targets are expressed as percentages of your Functional
             Threshold Power (FTP). When you update your FTP or switch athletes,
-            power targets adjust automatically. This means the same workout
-            works for any fitness level.
+            power targets adjust automatically. TrainerKit includes three FTP
+            test protocols — ramp test, 20-minute test, and 8-minute test — with
+            automatic FTP detection.
           </p>
         </div>
 
         <div class="faq-item">
-          <h3>How do I upload workouts to Strava?</h3>
+          <h3>Can multiple people use TrainerKit?</h3>
           <p>
-            Connect your Strava account from the athlete profile settings. After
-            completing a workout, you can upload it directly to Strava. You can
-            also enable automatic uploads so every completed workout syncs
-            immediately.
+            Yes! TrainerKit supports multiple athlete profiles. Each athlete has
+            their own FTP, weight, power zones, workout history, training plans,
+            and platform connections (Strava, Intervals.icu). Switch between
+            athletes from the profile selector.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does the Apple Watch work with TrainerKit?</h3>
+          <p>
+            The Apple Watch companion app pairs with the iPhone version to
+            deliver live heart rate during indoor rides — no chest strap needed.
+            It also provides haptic coaching alerts to keep you in the right
+            power zone without looking at the screen.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I upload rides to Strava?</h3>
+          <p>
+            Connect your Strava account from the athlete profile settings. On
+            Mac and iPhone, you'll authorize through your browser. On Apple TV,
+            scan a QR code with your phone to authorize, then enter the code
+            shown on the confirmation page. You can enable automatic uploads so
+            every completed ride syncs immediately.
           </p>
         </div>
 
@@ -90,9 +153,10 @@
           <h3>What data is exported in FIT files?</h3>
           <p>
             FIT files include timestamps, power, cadence, heart rate, speed,
-            distance, lap markers, and calculated metrics like TSS and
-            normalized power. These files are compatible with Strava,
-            Intervals.icu, TrainingPeaks, and other platforms.
+            distance, GPS coordinates (outdoor rides), lap markers, and
+            calculated metrics like TSS and normalized power. These files are
+            compatible with Strava, Intervals.icu, TrainingPeaks, and other
+            platforms. You can also export rides as GPX files.
           </p>
         </div>
 
@@ -101,8 +165,8 @@
           <p>
             First, ensure the trainer is powered on and the LED is active. Close
             any other apps that might be connected to the trainer (Zwift, Wahoo
-            app, etc.). Check that Bluetooth is enabled on your Mac. Try
-            restarting both the trainer and your Mac.
+            app, etc.). Check that Bluetooth is enabled on your device. Try
+            restarting both the trainer and your device.
           </p>
         </div>
 

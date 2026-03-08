@@ -18,7 +18,11 @@
 }
 
 body {
-  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.6;
@@ -134,6 +138,13 @@ nav a:hover {
   margin: 0 auto 32px;
 }
 
+.platform-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -150,6 +161,16 @@ nav a:hover {
   width: 18px;
   height: 18px;
   fill: var(--text-muted);
+  stroke: var(--text-muted);
+}
+
+.badge a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.badge a:hover {
+  color: var(--orange);
 }
 
 /* Sections */
@@ -188,7 +209,9 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .feature-card:hover {
@@ -415,10 +438,59 @@ footer a:hover {
   margin-bottom: 20px;
 }
 
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle:hover {
+  color: var(--text-primary);
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 12px 24px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.nav-mobile a:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   nav {
     display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-mobile.open {
+    display: flex;
   }
 
   .hero {
@@ -431,5 +503,10 @@ footer a:hover {
 
   .integration-list {
     flex-direction: column;
+  }
+
+  .platform-badges {
+    flex-direction: column;
+    align-items: center;
   }
 }
