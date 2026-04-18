@@ -40,8 +40,9 @@
           <h3>Which devices does TrainerKit support?</h3>
           <p>
             TrainerKit runs on Mac (macOS 14+), iPhone and iPad (iOS 17+), and
-            Apple TV (tvOS 17+). The Apple Watch companion app (watchOS 10+)
-            pairs with iPhone to deliver live heart rate during indoor rides.
+            Apple TV (tvOS 17+). Apple Watch (watchOS 10+) works as both a
+            companion (live heart rate to iPhone) and a standalone ride computer
+            with GPS, power, and cadence.
           </p>
         </div>
 
@@ -59,10 +60,12 @@
           <h3>How do I connect my trainer?</h3>
           <p>
             Make sure your trainer is powered on and not connected to another
-            app. In TrainerKit, go to the Trainer section and tap "Scan for
-            Trainer". Your trainer should appear in the list within a few
-            seconds. TrainerKit automatically detects whether you've connected a
-            smart trainer or a standalone power meter.
+            app. In TrainerKit on Mac, iPhone, iPad, or Apple TV, open the
+            Trainer section and tap "Scan for Trainer". Your trainer should
+            appear in the list within a few seconds. TrainerKit automatically
+            detects whether you've connected a smart trainer or a standalone
+            power meter. Apple Watch pairs sensors differently — see the Watch
+            FAQs below.
           </p>
         </div>
 
@@ -88,12 +91,29 @@
         </div>
 
         <div class="faq-item">
-          <h3>How do training plans work?</h3>
+          <h3>How does Adaptive Training Intelligence work?</h3>
           <p>
-            Training plans provide a periodized schedule of workouts on a
-            calendar. Follow the plan day by day, and it adapts automatically if
-            you miss workouts or need adjustments. Plans sync across all your
-            devices via iCloud.
+            Every morning TrainerKit generates a single training suggestion
+            tailored to your recent rides, current form (CTL/ATL/TSB), race
+            calendar, and the phase of your season (base, build, peak, taper,
+            recovery). A built-in AI coach explains the suggestion in plain
+            language and updates after each ride. A 4-week outlook projects what
+            the system would suggest on each future day so you can see the shape
+            of your training before you live it. The suggestion is a guide, not
+            a rule — you can always ride something else.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does the Race Calendar work?</h3>
+          <p>
+            Add your upcoming races with a priority (A, B, or C), discipline,
+            distance, elevation, and optional goals. Upcoming races drive your
+            training phase automatically — the closer an A-race, the more the
+            engine shifts toward peak and taper work. Import a GPX course to
+            preview the route, simulate it indoors on your trainer, or ride it
+            outdoors. After the race, the calendar links your completed ride
+            back to the event for easy comparison against goals.
           </p>
         </div>
 
@@ -131,10 +151,54 @@
         <div class="faq-item">
           <h3>How does the Apple Watch work with TrainerKit?</h3>
           <p>
-            The Apple Watch companion app pairs with the iPhone version to
-            deliver live heart rate during indoor rides — no chest strap needed.
-            It also provides haptic coaching alerts to keep you in the right
-            power zone without looking at the screen.
+            Apple Watch has two modes. In <strong>companion mode</strong>, the
+            Watch delivers live heart rate and haptic coaching to an active
+            iPhone ride. In <strong>standalone mode</strong>, the Watch records
+            rides on its own using GPS, and pairs to power and cadence meters
+            through watchOS Settings (see the next FAQ). Standalone rides sync
+            back to iPhone and iCloud automatically when back in range.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I pair a power meter or cadence sensor to Apple Watch?</h3>
+          <p>
+            Watch uses the system-level Bluetooth Health Equipment pairing (the
+            same path Apple Fitness uses), not in-app pairing. On your Apple
+            Watch: open
+            <strong>Settings &rarr; Bluetooth &rarr; Health Equipment</strong>,
+            then wake your sensor and select it when it appears. Once paired,
+            TrainerKit automatically receives power and cadence data during
+            standalone rides via HealthKit. Apple TV and iPhone use different
+            pairing methods — see the corresponding FAQs.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            Can I use iPhone and Apple Watch together with the same power meter?
+          </h3>
+          <p>
+            <strong>No.</strong> Most Bluetooth power meters only support a
+            single active connection. If you're riding with both devices, decide
+            which one owns the sensor:
+          </p>
+          <ul>
+            <li>
+              <strong>iPhone owns the meter (companion mode):</strong> pair the
+              meter inside the iPhone app. The Watch automatically switches to a
+              compatible workout mode so it does not grab the sensor away. Heart
+              rate and haptic alerts still flow from Watch to iPhone.
+            </li>
+            <li>
+              <strong>Watch owns the meter (standalone mode):</strong> pair the
+              meter through watchOS Settings Health Equipment. Do not connect
+              the same meter to the iPhone app during that ride.
+            </li>
+          </ul>
+          <p>
+            Connecting the same meter to both devices at once can leave the
+            meter unreachable until a power cycle.
           </p>
         </div>
 
