@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike Park Road Trip · Loam Pass · Sept 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9E7DA;
+    --paper-2:#DEDBC9;
+    --ink:#1F2A1E;
+    --ink-soft:#4A5449;
+    --pine:#2F4A3B;
+    --pine-2:#3E6350;
+    --loam:#8C4A2F;
+    --gold:#B9862E;
+    --teal:#356169;
+    --line:#C7C1A8;
+    --card:#F2F0E4;
+    --card-shadow: 0 1px 0 rgba(31,42,30,0.06), 0 6px 16px -10px rgba(31,42,30,0.35);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(47,74,59,0.05), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(140,74,47,0.06), transparent 40%);
+    color:var(--ink);
+    font-family:'Source Sans 3', system-ui, sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px 80px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:56px 0 32px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:36px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--loam);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;background:var(--loam);
+    display:inline-block;
+  }
+  h1.title{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:clamp(34px,6vw,54px);
+    line-height:1.02;
+    letter-spacing:0.01em;
+    margin:14px 0 6px;
+    color:var(--pine);
+  }
+  .subtitle{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:0 0 26px;
+  }
+  .subtitle b{color:var(--ink);}
+
+  .factbar{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .fact{
+    background:var(--card);
+    padding:12px 16px;
+  }
+  .fact .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .fact .v{font-weight:600;font-size:14.5px;color:var(--pine);}
+
+  /* ---------- ROUTE STRIP ---------- */
+  .routestrip{
+    margin:34px 0 44px;
+  }
+  .routestrip .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:12px;
+  }
+  .routeline{
+    display:flex;
+    align-items:center;
+    overflow-x:auto;
+    padding-bottom:6px;
+    scrollbar-width:thin;
+  }
+  .stop{
+    display:flex;flex-direction:column;align-items:center;
+    flex:0 0 auto;
+    min-width:70px;
+    position:relative;
+  }
+  .stop .dot{
+    width:13px;height:13px;border-radius:50%;
+    border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--line);
+    margin-bottom:6px;
+    z-index:2;
+  }
+  .stop .name{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;font-weight:600;
+    color:var(--ink);
+    text-align:center;
+    white-space:nowrap;
+  }
+  .stop .tag{
+    font-size:9px;color:var(--ink-soft);text-align:center;white-space:nowrap;
+  }
+  .seg{
+    height:2px;flex:1 1 24px;min-width:24px;
+    margin-bottom:24px;
+  }
+  .r-oh{background:var(--dot,var(--ink-soft));}
+  .dot-nh{background:var(--pine);} .seg-nh{background:var(--pine);}
+  .dot-me{background:var(--teal);} .seg-me{background:var(--teal);}
+  .dot-qc{background:var(--loam);} .seg-qc{background:var(--loam);}
+  .dot-vt{background:var(--gold);} .seg-vt{background:var(--gold);}
+  .dot-home{background:var(--ink-soft);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  h2.section{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:0.03em;
+    color:var(--pine);
+    margin:52px 0 6px;
+    display:flex;align-items:baseline;gap:12px;
+  }
+  h2.section .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--loam);font-weight:600;
+  }
+  .section-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 22px;max-width:640px;}
+
+  /* ---------- DAY CARDS (with route rail) ---------- */
+  .daylist{
+    position:relative;
+    padding-left:34px;
+  }
+  .daylist::before{
+    content:"";
+    position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 11px);
+  }
+  .day{
+    position:relative;
+    margin-bottom:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:16px 18px 16px 20px;
+    box-shadow:var(--card-shadow);
+  }
+  .day::before{
+    content:"";
+    position:absolute;left:-30px;top:22px;
+    width:12px;height:12px;border-radius:50%;
+    border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .day.state-nh::before{background:var(--pine);}
+  .day.state-me::before{background:var(--teal);}
+  .day.state-qc::before{background:var(--loam);}
+  .day.state-vt::before{background:var(--gold);}
+  .day.state-home::before{background:var(--ink-soft);}
+
+  .day-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px;
+  }
+  .day-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;font-weight:600;color:var(--ink-soft);
+  }
+  .day-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--ink-soft);
+  }
+  .day-stop{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;font-size:17px;letter-spacing:0.01em;
+    color:var(--ink);
+    margin-right:auto;
+  }
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;font-weight:600;letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:3px 7px;border-radius:2px;color:#fff;
+  }
+  .chip.nh{background:var(--pine);}
+  .chip.me{background:var(--teal);}
+  .chip.qc{background:var(--loam);}
+  .chip.vt{background:var(--gold);color:#2a2010;}
+  .chip.home{background:var(--ink-soft);}
+  .chip.tentative{
+    background:transparent;border:1px solid var(--loam);color:var(--loam);
+  }
+  .day-notes{font-size:14.5px;color:var(--ink-soft);}
+  .day-notes b{color:var(--ink);font-weight:600;}
+  .day-addr{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .day-addr::before{content:"📍 ";}
+  .lodge-line{
+    margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);
+    font-size:13.5px;color:var(--pine-2);font-weight:600;
+  }
+  .lodge-line .tflag{
+    color:var(--loam); font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    letter-spacing:0.05em; margin-right:6px; border:1px solid var(--loam);
+    padding:1px 5px; border-radius:2px;
+  }
+
+  /* ---------- DRIVING LEGS TABLE ---------- */
+  table.legs{
+    width:100%;border-collapse:collapse;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+  }
+  table.legs th{
+    text-align:left;background:var(--pine);color:#fff;
+    font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;
+    padding:9px 14px;font-weight:600;
+  }
+  table.legs td{padding:9px 14px;border-top:1px solid var(--line);}
+  table.legs td.time{color:var(--loam);font-weight:600;white-space:nowrap;text-align:right;}
+  table.legs tr:nth-child(even) td{background:rgba(0,0,0,0.015);}
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .checklist li{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:12px 14px;font-size:14.5px;
+  }
+  .checklist li::before{
+    content:"—";
+    color:var(--loam);font-weight:700;flex:0 0 auto;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .checklist b{color:var(--pine);}
+
+  /* ---------- LODGING CARDS ---------- */
+  .lodgegrid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+  }
+  .lcard{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;
+    padding:16px 16px 14px;box-shadow:var(--card-shadow);
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .lcard .lwhen{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .lcard .lname{font-family:'Oswald',sans-serif;font-weight:600;font-size:16.5px;color:var(--ink);}
+  .lcard .lmeta{font-size:13px;color:var(--ink-soft);}
+  .lcard .lprice{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13.5px;color:var(--pine);
+    margin-top:auto;
+  }
+  .status{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:0.06em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    width:fit-content;
+  }
+  .status.confirmed{background:var(--pine);color:#fff;}
+  .status.tentative{border:1px solid var(--loam);color:var(--loam);}
+  .lcard .note{font-size:12px;color:var(--loam);font-style:italic;}
+
+  footer{
+    margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  @media (max-width:600px){
+    .wrap{padding:0 14px 60px;}
+    header.hero{padding:36px 0 26px;}
+    .daylist{padding-left:26px;}
+    .day::before{left:-24px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Loam Pass · September 2026</div>
+    <h1 class="title">Bike Park Road Trip</h1>
+    <p class="subtitle">
+      <b>Friday out, Sunday home — ten days.</b> New Hampshire and a Maine lift weekend up front,
+      three days riding out of the Quebec City area, then the Northeast Kingdom and Killington
+      on the way back. No New York this time, and a straight drive home from Killington.
+    </p>
+    <div class="factbar">
+      <div class="fact"><div class="k">Start / End</div><div class="v">Lewis Center, OH</div></div>
+      <div class="fact"><div class="k">Dates</div><div class="v">Fri Sep 4 – Sun Sep 13</div></div>
+      <div class="fact"><div class="k">Coverage</div><div class="v">NH · ME · QC · VT</div></div>
+      <div class="fact"><div class="k">Pass</div><div class="v">Loam Pass (2 visits ea.)</div></div>
+      <div class="fact"><div class="k">Labor Day</div><div class="v">Mon, Sept 7</div></div>
+    </div>
+  </header>
+
+  <div class="routestrip">
+    <div class="label">Route at a glance</div>
+    <div class="routeline">
+      <div class="stop"><div class="dot" style="background:var(--ink-soft)"></div><div class="name">Lewis Ctr</div><div class="tag">OH</div></div>
+      <div class="seg seg-nh"></div>
+      <div class="stop"><div class="dot dot-nh"></div><div class="name">Highland</div><div class="tag">NH</div></div>
+      <div class="seg seg-me"></div>
+      <div class="stop"><div class="dot dot-me"></div><div class="name">Sugarloaf</div><div class="tag">ME</div></div>
+      <div class="seg seg-qc"></div>
+      <div class="stop"><div class="dot dot-qc"></div><div class="name">Quebec City</div><div class="tag">QC</div></div>
+      <div class="seg seg-vt"></div>
+      <div class="stop"><div class="dot dot-vt"></div><div class="name">E. Burke</div><div class="tag">VT</div></div>
+      <div class="seg seg-vt"></div>
+      <div class="stop"><div class="dot dot-vt"></div><div class="name">Killington</div><div class="tag">VT</div></div>
+      <div class="seg" style="background:var(--ink-soft)"></div>
+      <div class="stop"><div class="dot dot-home"></div><div class="name">Home</div><div class="tag">OH</div></div>
+    </div>
+  </div>
+
+  <h2 class="section"><span class="num">01</span> Day-by-Day</h2>
+  <p class="section-sub">Ten days, one loop. Dot color marks the region; dashed line is the route.</p>
+
+  <div class="daylist">
+
+    <div class="day state-nh">
+      <div class="day-head">
+        <span class="day-num">DAY 1</span><span class="day-date">Fri Sep 4</span>
+        <span class="day-stop">Transit — drive to NH</span>
+        <span class="chip nh">NH</span>
+      </div>
+      <div class="day-notes">
+        Depart Lewis Center ~6&nbsp;AM. ~5&nbsp;hr up I-71→I-90 to Buffalo; lunch at <b>Wingnutz</b>
+        (opens 11&nbsp;AM). Then ~7&nbsp;hr on to central NH — evening arrival; dinner en route at
+        <b>Concord Craft Brewing</b> (~25 min south of Highland, kitchen open till 9). ~12.5&nbsp;hr total.
+      </div>
+      <div class="lodge-line">O/N near Highland (Tilton/Concord)</div>
+    </div>
+
+    <div class="day state-nh">
+      <div class="day-head">
+        <span class="day-num">DAY 2</span><span class="day-date">Sat Sep 5</span>
+        <span class="day-stop">Highland Bike Park, NH</span>
+        <span class="chip nh">NH</span>
+      </div>
+      <div class="day-notes">
+        Full day at the park (Sat 9–5; on Loam). Then ~2.5–3&nbsp;hr to Carrabassett Valley;
+        dinner at <b>The Bag and Kettle</b> (base of Sugarloaf, till 9).
+      </div>
+      <div class="day-addr">75 Ski Hill Dr, Northfield, NH 03276</div>
+      <div class="lodge-line">O/N Carrabassett Valley</div>
+    </div>
+
+    <div class="day state-me">
+      <div class="day-head">
+        <span class="day-num">DAY 3</span><span class="day-date">Sun Sep 6</span>
+        <span class="day-stop">Sugarloaf (lift), ME → Quebec City</span>
+        <span class="chip me">ME</span>
+      </div>
+      <div class="day-notes">
+        Gravity laps on the Whiffletree Quad (Sun 10–5; on Loam) through the day.
+        Then ~3.5–4&nbsp;hr to the Quebec City area via the
+        24-hr Coburn Gore crossing.
+      </div>
+      <div class="day-addr">5092 Sugarloaf Access Rd, Carrabassett Valley, ME 04947</div>
+      <div class="lodge-line">O/N Quebec City — Courtyard by Marriott (night 1 of 3)</div>
+    </div>
+
+    <div class="day state-qc">
+      <div class="day-head">
+        <span class="day-num">DAY 4</span><span class="day-date">Mon Sep 7</span>
+        <span class="day-stop">Vallée Bras-du-Nord, QC</span>
+        <span class="chip qc">QC</span>
+      </div>
+      <div class="day-notes">
+        Labour Day. Pedal <b>Vallée Bras-du-Nord</b> — 100&nbsp;km singletrack network west of the city (daily).
+      </div>
+      <div class="day-addr">107 Grande Ligne, Saint-Raymond, QC G3L 2Y4</div>
+      <div class="lodge-line">O/N Quebec City — Courtyard by Marriott (night 2 of 3)</div>
+    </div>
+
+    <div class="day state-qc">
+      <div class="day-head">
+        <span class="day-num">DAY 5</span><span class="day-date">Tue Sep 8</span>
+        <span class="day-stop">Le Massif de Charlevoix, QC</span>
+        <span class="chip qc">QC</span>
+      </div>
+      <div class="day-notes">
+        Gondola-served descents in Charlevoix (~1&nbsp;hr NE of QC; daily, last gondola 4&nbsp;pm; on Loam).
+      </div>
+      <div class="day-addr">1350 Rue Principale, Petite-Rivière-Saint-François, QC G0A 2L0</div>
+      <div class="lodge-line">O/N Quebec City — Courtyard by Marriott (night 3 of 3)</div>
+    </div>
+
+    <div class="day state-qc">
+      <div class="day-head">
+        <span class="day-num">DAY 6</span><span class="day-date">Wed Sep 9</span>
+        <span class="day-stop">Empire 47, QC → Vermont</span>
+        <span class="chip qc">QC</span><span class="chip vt">VT</span>
+      </div>
+      <div class="day-notes">
+        Pedal <b>Empire 47</b> (Lac-Delage, just N of the city; daily, on Loam; ~70&nbsp;km) in the morning,
+        then ~4&nbsp;hr to East Burke, VT, incl. the QC→VT border crossing (evening arrival — fuel up first, you'll roll in late).
+      </div>
+      <div class="day-addr">26 Rue du Pied-des-Pentes, Lac-Delage, QC G3C 5A2</div>
+      <div class="lodge-line">O/N East Burke — The Wildflower Inn (night 1 of 2)</div>
+    </div>
+
+    <div class="day state-vt">
+      <div class="day-head">
+        <span class="day-num">DAY 7</span><span class="day-date">Thu Sep 10</span>
+        <span class="day-stop">Kingdom Trails (Black Bear), VT</span>
+        <span class="chip vt">VT</span>
+      </div>
+      <div class="day-notes">
+        Pedal the KT network (daily ~8–4) — Black Bear area.
+      </div>
+      <div class="day-addr">478 VT Route 114, East Burke, VT 05832</div>
+      <div class="lodge-line">O/N East Burke — The Wildflower Inn (night 2 of 2)</div>
+    </div>
+
+    <div class="day state-vt">
+      <div class="day-head">
+        <span class="day-num">DAY 8</span><span class="day-date">Fri Sep 11</span>
+        <span class="day-stop">Burke Mountain Resort, VT</span>
+        <span class="chip vt">VT</span>
+      </div>
+      <div class="day-notes">
+        Lift-served gravity at Burke (Fri 10–5; on Loam). Then ~2&nbsp;hr to Killington.
+      </div>
+      <div class="day-addr">223 Sherburne Lodge Rd, East Burke, VT 05832</div>
+      <div class="lodge-line">O/N Killington — Mountain Greene 3B16 (night 1 of 2)</div>
+    </div>
+
+    <div class="day state-vt">
+      <div class="day-head">
+        <span class="day-num">DAY 9</span><span class="day-date">Sat Sep 12</span>
+        <span class="day-stop">Killington, VT</span>
+        <span class="chip vt">VT</span>
+      </div>
+      <div class="day-notes">
+        Full day at the bike park (daily, on Loam).
+      </div>
+      <div class="day-addr">4763 Killington Rd, Killington, VT 05751</div>
+      <div class="lodge-line">O/N Killington — Mountain Greene 3B16 (night 2 of 2)</div>
+    </div>
+
+    <div class="day state-home">
+      <div class="day-head">
+        <span class="day-num">DAY 10</span><span class="day-date">Sun Sep 13</span>
+        <span class="day-stop">Drive home</span>
+        <span class="chip home">OH</span>
+      </div>
+      <div class="day-notes">
+        Straight push Killington → Lewis Center, ~11&nbsp;hr. Home.
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section"><span class="num">02</span> Driving Legs</h2>
+  <p class="section-sub">The approximate hours between every ride, in order.</p>
+  <table class="legs">
+    <tr><th>Leg</th><th style="text-align:right;">Time</th></tr>
+    <tr><td>Lewis Center → central NH (Fri)</td><td class="time">~12.5 hr</td></tr>
+    <tr><td>Highland → Carrabassett Valley (Sat)</td><td class="time">~2.5–3 hr</td></tr>
+    <tr><td>Carrabassett → Quebec City area, via Coburn Gore (Sun)</td><td class="time">~3.5–4 hr</td></tr>
+    <tr><td>Quebec City ↔ Vallée Bras-du-Nord (Mon day-ride)</td><td class="time">~50–55 min each way</td></tr>
+    <tr><td>Quebec City ↔ Le Massif (Tue day-ride)</td><td class="time">~1 hr each way</td></tr>
+    <tr><td>Empire 47 → East Burke, VT via Stanstead/Derby Line (Wed)</td><td class="time">~4–4.25 hr</td></tr>
+    <tr><td>East Burke → Killington (Fri)</td><td class="time">~2 hr</td></tr>
+    <tr><td>Killington → Lewis Center, straight (Sun)</td><td class="time">~11 hr</td></tr>
+  </table>
+
+  <h2 class="section"><span class="num">03</span> Before You Go</h2>
+  <ul class="checklist">
+    <li><span><b>Loam Pass</b> covers Highland, Sugarloaf, Empire 47, Vallée Bras-du-Nord, Le Massif, Burke, and Kingdom Trails (2 visits each).</span></li>
+    <li><span><b>Sugarloaf lift</b> runs Fri–Sun only — Sunday works as planned; confirm the weekend chair hours before counting on it.</span></li>
+    <li><span><b>Wednesday</b> is the transition day — ride Empire 47 in the morning, then a ~4&nbsp;hr evening drive to East Burke. Fuel up and eat before you go; you'll roll in late.</span></li>
+    <li><span><b>Passports</b> — bring them for everyone. Required at both border crossings: into Canada Sunday at Coburn Gore, and back into the US Wednesday on the QC→VT leg.</span></li>
+    <li><span><b>Two border crossings</b> — into Canada at Coburn Gore (Sun) and back into the US on the QC→VT leg (Wed). Be set to declare the bikes.</span></li>
+    <li><span><b>Quebec City</b> is home base Sun–Tue nights — three rides (Empire 47, Le Massif, Vallée Bras-du-Nord) all within a short drive, with dining in Old Town Quebec City nearby.</span></li>
+  </ul>
+
+  <h2 class="section"><span class="num">04</span> Lodging</h2>
+  <p class="section-sub">All five stops are booked. Addresses below are ready to drop into maps.</p>
+  <div class="lodgegrid">
+
+    <div class="lcard">
+      <span class="status confirmed">Confirmed</span>
+      <div class="lwhen">Night 1 · Fri Sep 4 · New Hampshire</div>
+      <div class="lname">Fairfield Inn Concord</div>
+      <div class="lmeta">4 Gulf St, Concord, NH 03301 · Marriott, booked via marriott.com.</div>
+      <div class="lprice">1 night · $184.45 · booked by Mike</div>
+    </div>
+
+    <div class="lcard">
+      <span class="status confirmed">Confirmed</span>
+      <div class="lwhen">Night 2 · Sat Sep 5 · Maine</div>
+      <div class="lname">Sugarloaf Inn</div>
+      <div class="lmeta">5092 Sugarloaf Access Rd, Carrabassett Valley, ME 04947 · booked via Travelocity.</div>
+      <div class="lprice">1 night · $165.88 · booked by James</div>
+    </div>
+
+    <div class="lcard">
+      <span class="status confirmed">Confirmed</span>
+      <div class="lwhen">Nights 3–5 · Sun–Tue Sep 6–8 · Quebec</div>
+      <div class="lname">Courtyard by Marriott Quebec City</div>
+      <div class="lmeta">900 des Rocailles, Quebec City, QC G2J 1A5 · north end of the city, Marriott.</div>
+      <div class="lprice">3 nights · $627.86 total ($209.29/night) · booked by Mike</div>
+    </div>
+
+    <div class="lcard">
+      <span class="status confirmed">Confirmed</span>
+      <div class="lwhen">Nights 6–7 · Wed–Thu Sep 9–10 · Vermont (NEK)</div>
+      <div class="lname">The Wildflower Inn</div>
+      <div class="lmeta">2059 Darling Hill Rd, Lyndonville, VT 05851 · booked via Travelocity.</div>
+      <div class="lprice">2 nights · $500.76 total ($250.38/night) · booked by James</div>
+    </div>
+
+    <div class="lcard">
+      <span class="status confirmed">Confirmed</span>
+      <div class="lwhen">Nights 8–9 · Fri–Sat Sep 11–12 · Vermont</div>
+      <div class="lname">Mountain Greene 3B16 — Killington</div>
+      <div class="lmeta">137 E Mountain Rd, Unit 3B16, Killington, VT 05751 · booked via Travelocity.</div>
+      <div class="lprice">2 nights · $451.82 total ($225.91/night) · booked by James</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Final itinerary · Fri Sep 4 – Sun Sep 13, 2026</span>
+    <span>Loam Pass · Bike Park Road Trip</span>
+  </footer>
+
+</div>
+</body>
+</html>
