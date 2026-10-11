@@ -6,7 +6,7 @@
     <title>TrainerKit – Indoor & Outdoor Cycling Training App</title>
     <meta
       name="description"
-      content="TrainerKit is an adaptive cycling coach. Daily AI training suggestions, structured indoor workouts, GPX route simulation, and outdoor GPS rides. Apple Watch standalone rides with HealthKit sensor pairing. iCloud sync, Strava & Intervals.icu integration. Mac, iPhone, iPad, Apple Watch, Apple TV."
+      content="TrainerKit is an adaptive cycling coach. Daily AI training suggestions, structured indoor workouts, Ride with GPS and GPX route simulation with surface-driven resistance, and outdoor GPS rides with route following. Apple Watch standalone rides with HealthKit sensor pairing. iCloud sync, Strava, Intervals.icu, Ride with GPS and Apple Health. Mac, iPhone, iPad, Apple Watch, Apple TV."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,13 +61,15 @@
     <main>
       <section class="hero">
         <div class="container">
-          <h1>Your complete<br /><span>cycling studio</span></h1>
+          <h1>Coaching built<br /><span>from your rides</span></h1>
           <p>
-            Adaptive daily training suggestions with built-in AI coaching.
-            Structured indoor workouts with automatic resistance control.
-            Real-world GPX routes with grade simulation. Outdoor GPS rides with
-            audio coaching. Apple Watch standalone rides. All synced across
-            your devices — free, with no subscription and no account.
+            A coach that learns from how you actually ride. Every day it
+            reads your rides, your form, and the races and trips on your
+            calendar, then hands you one workout sized to the day — on the
+            trainer with automatic resistance, outdoors with audio coaching,
+            or on your Apple Watch alone. Real-world routes from Ride with GPS
+            or GPX, with grade and surface simulation. Synced across your
+            devices, free, no subscription, no account.
           </p>
           <div class="platform-badges">
             <div class="badge">
@@ -131,7 +133,10 @@
                   stroke-linecap="round"
                 />
               </svg>
-              <span>Apple TV</span>
+              <a
+                href="https://apps.apple.com/us/app/trainerkit/id6757768724?platform=appleTV"
+                >Apple TV</a
+              >
             </div>
             <div class="badge">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -176,9 +181,13 @@
               </div>
               <h3>Smart Trainer Control</h3>
               <p>
-                Bluetooth FTMS connectivity to control resistance on your smart
-                trainer in real-time. ERG mode for structured workouts,
-                simulation mode for GPX routes and free rides.
+                Controls any Bluetooth FTMS trainer, plus Wahoo KICKR and Tacx
+                FE-C natively. ERG mode holds the target for structured
+                workouts; simulation mode sets grade and rolling resistance for
+                routes and free rides, surface by surface; resistance mode
+                leaves you on your own gears for tests and intervals. Trainers
+                reconnect on their own after a dropout, and sensor battery
+                levels show before you start.
               </p>
             </div>
 
@@ -189,11 +198,31 @@
                   <path d="M17 7h4v4" />
                 </svg>
               </div>
-              <h3>GPX Route Simulation</h3>
+              <h3>Route Simulation</h3>
               <p>
-                Ride real-world routes from GPX files. Your trainer responds to
-                elevation changes with realistic grade resistance and surface
-                types. Feel every climb and descent.
+                Ride real-world routes from Ride with GPS or GPX files. Your
+                trainer responds to every climb and descent with realistic grade
+                resistance, and to the road itself: a Ride with GPS route
+                carries its surface, so gravel and dirt roll harder than
+                pavement. A satellite 3D map rides beside the elevation profile.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 18c4-6 6-6 8-2s4 4 8-4" />
+                  <circle cx="4" cy="18" r="1.5" />
+                  <circle cx="20" cy="12" r="1.5" />
+                </svg>
+              </div>
+              <h3>Ride with GPS</h3>
+              <p>
+                Connect your Ride with GPS account and your route library is in
+                the app on every device. Import a route to ride it indoors with
+                its real surface, or follow it outdoors. Upload finished rides,
+                and turn an enduro ride into a route with its stages marked as
+                points of interest.
               </p>
             </div>
 
@@ -208,9 +237,11 @@
               </div>
               <h3>Outdoor GPS Rides</h3>
               <p>
-                Take structured workouts outside with GPS tracking and audio
-                coaching on iPhone. Or start a free ride and just pedal.
-                Battery-smart GPS adjusts accuracy based on speed.
+                One tap to ride on iPhone. Follow a route with a 3D navigation
+                camera and the course drawn on the map, take a structured
+                workout outside with audio coaching, or just pedal. Rides are
+                saved as you go, tagged road, mountain, or e-bike at the end,
+                and uploaded with the right bike.
               </p>
             </div>
 
@@ -226,9 +257,11 @@
               <h3>Enduro Mode</h3>
               <p>
                 Alternating liaison and stage laps with a countdown into each
-                stage, on iPhone and Apple Watch. Per-lap stats, route and
-                elevation colored by stage, and uploads to Strava as a mountain
-                bike ride.
+                stage, on iPhone and Apple Watch. Follow a stage-marked course
+                and the stages open and close themselves at the gates. Per-stage
+                stats, route and elevation colored by stage, uploads to Strava
+                as a mountain bike ride, and a finished ride becomes a Ride with
+                GPS route with each stage marked as a point of interest.
               </p>
             </div>
 
@@ -243,11 +276,12 @@
               </div>
               <h3>Adaptive Training Intelligence</h3>
               <p>
-                A daily training suggestion tailored to your form, training
-                history, and race calendar. Built-in coaching explains every
-                recommendation in plain language, phrased by Apple Intelligence
-                on supported devices. A 4-week outlook shows the
-                shape of your training as it adapts to each completed ride.
+                A daily suggestion built from your rides — your form, the days you
+                actually ride and rest, your discipline, and your race calendar. The
+                season runs in blocks around your A races, with deload weeks, openers,
+                and a progression block that raises one capability at a time. Each
+                day's workout is one tap to start, indoors or out, with coaching that
+                explains it in plain language and a 4-week outlook of what's ahead.
               </p>
             </div>
 
@@ -260,12 +294,12 @@
               </div>
               <h3>Power Profile</h3>
               <p>
-                Your power-duration curve builds from the rides you already do —
-                no test protocol required. See critical power, your rider
-                phenotype, and which duration band matters most for the
-                discipline you race. Capability tracking follows your punch,
-                climbing, durability and efficiency over time, and a progression
-                block commits to moving one of them.
+                Your power-duration curve builds from the rides you already do — no
+                test required. See critical power, your rider phenotype, and the
+                duration band your discipline demands. Capability tracking follows
+                your punch, climbing, durability, and efficiency; Training Focus names
+                the band your goal needs; and short, hard efforts in workouts are
+                targeted from your own curve, never a fixed percentage of FTP.
               </p>
             </div>
 
@@ -283,10 +317,12 @@
               </div>
               <h3>Race Calendar</h3>
               <p>
-                Plan your season with an enhanced race calendar. Track goals,
-                registration status, and event URLs. Import GPX courses to
-                preview the route, simulate it indoors, or ride it outdoors.
-                Post-race results link to your completed ride automatically.
+                Add races with a priority, discipline, goals, and registration
+                status, and the season plans itself around them: A races set the build
+                and taper, every race gets an easy day before and recovery after, and
+                race-day coaching tells you what to do. Attach a course to preview it,
+                ride it on the trainer, or follow it on race day. Results link to your
+                ride, and races export to your iCloud calendar.
               </p>
             </div>
 
@@ -300,11 +336,12 @@
               </div>
               <h3>Training Trips</h3>
               <p>
-                Multi-day trips, camps, and destination riding get their own
-                place on the calendar. Your plan tapers into the trip and
-                recovers out of it, and the coaching switches to companion mode
-                for the days you're there. Mark a trip as a primary goal and the
-                build ramps toward it.
+                Multi-day trips, camps, and destination riding get their own place on
+                the calendar, with a plan for each day: venue, discipline, how hard,
+                and which days are off or travel. Your plan tapers into the trip and
+                recovers out of it, the coaching switches to companion mode while
+                you're there, and a trip marked as a primary goal has the build ramp
+                toward it. Trips sync everywhere and export to your iCloud calendar.
               </p>
             </div>
 
@@ -316,9 +353,12 @@
               </div>
               <h3>FTP Testing</h3>
               <p>
-                Three built-in protocols — ramp test, 20-minute test, and
-                8-minute test — with automatic FTP detection. Your power zones
-                update instantly.
+                Test when you want to, not because you have to. Three built-in
+                protocols — a ramp test in ERG mode, and 20-minute and 2×8-minute
+                tests ridden on your own gears, indoors or outdoors — detect your
+                FTP at the finish and offer to update it, with every result kept
+                in your test history. Between tests, your power-duration curve
+                keeps a running estimate from the rides you already do.
               </p>
             </div>
 
@@ -333,11 +373,12 @@
               </div>
               <h3>Ride Analysis</h3>
               <p>
-                Every ride gets per-second charts for power, heart rate, cadence
-                and speed, a route map, and lap breakdowns. Power distribution
-                shows where your watts actually lived; peak power shows your best
-                effort at every duration against your 90-day best. Descent load
-                and late-ride fade are surfaced for gravity rides.
+                Per-second charts for power, heart rate, cadence, and speed, a map,
+                lap and stage breakdowns, and time in zone. Power distribution shows
+                where your watts lived; peak power marks your best at every duration
+                against your 90-day best. No power meter? Load is estimated from heart
+                rate so the ride still counts. Descent load and late-ride fade surface
+                for gravity rides, and the coach notes what the ride did for your week.
               </p>
             </div>
 
@@ -351,11 +392,12 @@
               </div>
               <h3>Apple Watch</h3>
               <p>
-                Ride standalone on your Apple Watch with GPS, power, and
-                cadence — sensors pair through watchOS Settings. Digital Crown
-                cycles your metric roller. Five ride pages including live
-                power, lap stats, averages, and map. Or keep it as a companion
-                for heart rate and haptic coaching during iPhone rides.
+                Ride standalone with GPS, power, and cadence paired through watchOS.
+                Free rides, structured workouts, enduro with automatic stage gates,
+                mountain bike and e-bike rides, from the Action Button or Siri. Five
+                ride pages on the Digital Crown, including a map you can switch off to
+                save battery. Every ride is saved as you go and secured the moment you
+                tap End, then lands on your iPhone, in iCloud, and in Apple Health.
               </p>
             </div>
 
@@ -369,8 +411,11 @@
               <p>
                 Rain on a touchscreen registers as taps — enough of it can end a
                 ride by itself. Arm Wet Mode before a wet ride and the Watch
-                screen goes fully dead using native Water Lock. Press and hold
-                the Digital Crown to unlock.
+                screen goes fully dead using native Water Lock. The Action
+                Button still marks laps and stages without unlocking; turn the
+                Digital Crown to unlock for a look, and the screen locks itself
+                again. It stays armed for the whole ride and releases cleanly
+                when you end it.
               </p>
             </div>
 
@@ -384,9 +429,13 @@
               </div>
               <h3>Apple TV</h3>
               <p>
-                Full rides on the big screen. Structured workouts, GPX routes,
-                and free rides with trainer control, plus your ride history and
-                stats — all on Apple TV.
+                Full rides on the big screen with the Siri Remote. Structured
+                workouts, Ride with GPS and GPX routes on a satellite map, and
+                free rides with trainer control; the day's suggestion from the
+                coach; ride history with charts and elevation; athlete
+                switching. Connect Strava, Intervals.icu, and Ride with GPS by
+                scanning a QR code with your phone. Rides sync everywhere and
+                reach Apple Health through your iPhone.
               </p>
             </div>
 
@@ -401,9 +450,10 @@
               </div>
               <h3>Multi-Athlete Support</h3>
               <p>
-                Individual profiles with separate FTP, power zones, workout
-                histories, and platform connections for each athlete. Switch
-                profiles instantly.
+                Individual profiles with separate FTP, power zones, ride
+                history, coaching, race calendar, surfaces, default bikes, and
+                platform connections for each athlete. Switch profiles
+                instantly, on every device.
               </p>
             </div>
 
@@ -417,9 +467,10 @@
               </div>
               <h3>iCloud Sync</h3>
               <p>
-                Ride history, workouts, race calendar, and athlete profiles sync
-                across your Mac, iPhone, iPad, and Apple TV via iCloud. Plan on
-                one device, ride on another.
+                Ride history, workouts, race calendar, trips, athlete profiles,
+                and the coach's own state sync across your Mac, iPhone, iPad,
+                and Apple TV via iCloud, in your private container. Plan on one
+                device, ride on another, rename a ride anywhere.
               </p>
             </div>
 
@@ -437,8 +488,31 @@
               <h3>Workout Library</h3>
               <p>
                 Stock templates for endurance, sweet spot, threshold, VO2max,
-                and more. Create custom workouts with the built-in editor or
-                import ZWO and MRC files.
+                and more, plus discipline-specific sessions the coach draws on
+                for the day's suggestion. Create custom workouts with the
+                built-in editor or import ZWO and MRC files, ride any of them
+                indoors or outdoors with audio coaching, and send them to your
+                Watch for standalone structured rides.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M15 4l5 5-11 11H4v-5L15 4z" />
+                  <path d="M13 6l5 5" />
+                  <path d="M19 2l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" />
+                </svg>
+              </div>
+              <h3>Workout Generator</h3>
+              <p>
+                Need a session now? Pick a type — endurance, sweet spot,
+                threshold, VO2max, sprint, neuromuscular, recovery, or enduro —
+                set the duration and interval length, and ride it. The enduro
+                generator builds a race simulation from your stage count,
+                liaison length, and stage mix, short and punchy to long and
+                technical. On Mac, iPhone, and Apple TV, with every generated
+                workout saved to your library.
               </p>
             </div>
           </div>
@@ -481,6 +555,22 @@
                 </text>
               </svg>
               <span>Intervals.icu</span>
+            </div>
+            <div class="integration-item">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F26722"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M4 18c4-6 6-6 8-2s4 4 8-4" />
+                <circle cx="4" cy="18" r="1.5" fill="#F26722" />
+                <circle cx="20" cy="12" r="1.5" fill="#F26722" />
+              </svg>
+              <span>Ride with GPS</span>
             </div>
             <div class="integration-item">
               <svg
@@ -558,8 +648,8 @@
               <ul>
                 <li>macOS 14 Sonoma or later</li>
                 <li>iOS 17 or later (iPhone & iPad)</li>
-                <li>tvOS 17 or later (Apple TV)</li>
-                <li>watchOS 10 or later (companion)</li>
+                <li>tvOS 18.6 or later (Apple TV)</li>
+                <li>watchOS 11 or later (standalone or companion)</li>
               </ul>
             </div>
             <div class="spec-group">
@@ -567,6 +657,7 @@
               <ul>
                 <li>Bluetooth Low Energy (BLE)</li>
                 <li>FTMS trainer protocol</li>
+                <li>Wahoo KICKR and Tacx FE-C trainer control</li>
                 <li>Power meter support</li>
                 <li>Heart rate monitors</li>
               </ul>
@@ -602,6 +693,7 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="support.html">Support</a>
+          <a href="mailto:mike@trainerkitapp.com">mike@trainerkitapp.com</a>
         </div>
         <p>&copy; 2026 TrainerKit. Built with Swift for Apple platforms.</p>
       </div>

@@ -32,7 +32,7 @@
     <main class="page-content">
       <div class="container-narrow">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 2026</p>
+        <p class="updated">Last updated: October 2026</p>
 
         <p>
           TrainerKit is designed with your privacy in mind. This policy explains
@@ -48,8 +48,9 @@
           <li>Athlete profiles (name, FTP, weight, heart rate zones)</li>
           <li>Workout history and performance data</li>
           <li>Custom workout templates you create</li>
-          <li>Training plans and completion progress</li>
-          <li>Platform connection tokens (Strava, Intervals.icu)</li>
+          <li>Race calendar and training trips</li>
+          <li>Imported routes (a local cache of your Ride with GPS routes)</li>
+          <li>Platform connection tokens (Strava, Intervals.icu, Ride with GPS)</li>
         </ul>
 
         <h2>Local Storage</h2>
@@ -63,7 +64,7 @@
         <h2>iCloud Sync</h2>
         <p>
           TrainerKit uses Apple's iCloud (CloudKit) to sync your ride history,
-          workouts, training plans, and athlete profiles across your devices.
+          workouts, race calendar, trips, and athlete profiles across your devices.
           This data is stored in your private iCloud container, accessible only
           to devices signed into your Apple Account. We do not have access to
           your iCloud data. iCloud sync is governed by
@@ -74,11 +75,13 @@
 
         <h2>Location Data</h2>
         <p>
-          On iPhone, TrainerKit uses GPS for outdoor rides. Location data is
-          recorded in your ride history and included in FIT and GPX exports when
-          you choose to share them. Location data is not transmitted to any
-          external servers. You can revoke location access at any time in your
-          device Settings.
+          On iPhone and Apple Watch, TrainerKit uses GPS for outdoor rides.
+          Location data is recorded in your ride history, included in FIT and
+          GPX exports, sent to Strava, Intervals.icu, or Ride with GPS only
+          when you upload a ride, and saved to Apple Health as a workout route
+          if you grant permission. It is never sent to TrainerKit servers,
+          because there are none. You can revoke location access at any time in
+          your device Settings.
         </p>
 
         <h2>Third-Party Services</h2>
@@ -102,8 +105,22 @@
             >.
           </li>
           <li>
-            <strong>Apple Health</strong> – Workout data can be saved to Apple
-            Health if you grant permission on iPhone.
+            <strong>Ride with GPS</strong> – Receives rides and routes you choose
+            to upload, and provides the routes you import. See
+            <a href="https://ridewithgps.com/privacy">Ride with GPS's Privacy Policy</a>.
+          </li>
+          <li>
+            <strong>Apple Health</strong> – Workout data, including the route,
+            can be saved to Apple Health if you grant permission on iPhone or
+            Apple Watch. Rides from Mac and Apple TV reach Health through your
+            iPhone. TrainerKit also <em>reads</em> from Health, each only with
+            your permission: on Apple Watch, power, cadence, and heart rate from
+            sensors paired in watchOS; on iPhone, heart rate during rides, your
+            other workouts (to count cross-training toward your weekly load),
+            and heart rate variability, resting heart rate, and sleep (for the
+            readiness signal in your daily suggestion). This data is used on
+            your device and stored in your ride history only when it belongs to
+            a ride. It is never sent anywhere.
           </li>
         </ul>
 
@@ -113,6 +130,16 @@
           Bluetooth. This data (power, cadence, heart rate) is used in real-time
           during workouts and stored in your workout history. It is not
           transmitted to any external servers.
+        </p>
+
+        <h2>AI Coaching</h2>
+        <p>
+          The daily suggestion and ride notes are generated on your device. On
+          devices with Apple Intelligence, the on-device model phrases the
+          coaching text from facts the app computes locally. No ride data,
+          training history, or coaching text is sent to Apple's servers or to
+          anyone else for this feature, and it works without a network
+          connection.
         </p>
 
         <h2>Analytics</h2>
@@ -138,10 +165,12 @@
 
         <h2>Contact</h2>
         <p>
-          Questions about privacy?
+          Questions about privacy? Email
+          <a href="mailto:mike@trainerkitapp.com">mike@trainerkitapp.com</a>
+          or
           <a href="https://github.com/mdwhaley/trainerkit-support/issues"
-            >Open an issue on GitHub</a
-          >
+            >open an issue on GitHub</a
+          >.
         </p>
       </div>
     </main>

@@ -40,7 +40,7 @@
           <h3>Which devices does TrainerKit support?</h3>
           <p>
             TrainerKit runs on Mac (macOS 14+), iPhone and iPad (iOS 17+), and
-            Apple TV (tvOS 17+). Apple Watch (watchOS 10+) works as both a
+            Apple TV (tvOS 18.6+). Apple Watch (watchOS 11+) works as both a
             companion (live heart rate to iPhone) and a standalone ride computer
             with GPS, power, and cadence.
           </p>
@@ -50,9 +50,12 @@
           <h3>Which trainers are compatible?</h3>
           <p>
             TrainerKit works with any smart trainer that supports the Bluetooth
-            FTMS (Fitness Machine Service) protocol. This includes most trainers
-            from Wahoo, Tacx, Elite, Saris, and other major brands. Standalone
-            power meters and heart rate monitors are also supported.
+            FTMS (Fitness Machine Service) protocol, which covers most trainers
+            from Wahoo, Tacx, Elite, Saris, Zwift, and other major brands. It
+            also speaks Wahoo's own KICKR control and Tacx FE-C over Bluetooth,
+            so older KICKRs and the Tacx NEO work too. Standalone power meters
+            and heart rate monitors are supported, and the app reports sensor
+            battery levels before a ride.
           </p>
         </div>
 
@@ -72,21 +75,37 @@
         <div class="faq-item">
           <h3>Can I ride outdoors with TrainerKit?</h3>
           <p>
-            Yes! On iPhone, you can take structured workouts outside with GPS
-            tracking and audio coaching, or start an outdoor free ride. GPS
-            accuracy adjusts automatically based on your speed to optimize
-            battery life.
+            Yes! On iPhone, it is one tap to ride. You can follow a route from
+            Ride with GPS or a GPX file with a 3D navigation camera, take a
+            structured workout outside with audio coaching, or start a free
+            ride. Rides are saved as you go, so a crash or a dead battery never
+            loses one. At the end you tag the ride road, mountain, or e-bike and
+            pick the bike it uploads with.
           </p>
         </div>
 
         <div class="faq-item">
           <h3>What are GPX routes?</h3>
           <p>
-            GPX routes let you ride real-world courses on your indoor trainer.
-            Load a GPX file and your trainer automatically adjusts resistance to
-            match the elevation profile — climbs get harder, descents get
-            easier. You can also choose surface types that add realistic rolling
-            resistance.
+            Routes let you ride real-world courses on your indoor trainer.
+            Import a Ride with GPS route or load a GPX file and your trainer
+            automatically adjusts resistance to match the elevation profile —
+            climbs get harder, descents get easier. A Ride with GPS route also
+            carries its surface, so the trainer rolls harder on gravel and dirt
+            than on pavement; for GPX files you choose the surface yourself.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does Ride with GPS work?</h3>
+          <p>
+            Connect your Ride with GPS account from the athlete profile on Mac,
+            iPhone, or Apple TV (the TV uses a QR code, like Strava). Your
+            route library then appears in the app for import. Routes are
+            cached, never copied — your Ride with GPS library stays the source
+            of truth. You can upload a finished ride as a trip, save it as a
+            route, and an enduro ride becomes a route with each stage marked as
+            a point of interest. Each device connects separately.
           </p>
         </div>
 
@@ -118,10 +137,24 @@
         </div>
 
         <div class="faq-item">
+          <h3>What are Training Trips?</h3>
+          <p>
+            A trip is a multi-day block on the calendar — a bike park weekend,
+            a training camp, a destination vacation — with a plan for each day:
+            the venue, the discipline, and how hard the day is, including off
+            and travel days. Your plan tapers into the trip, the coaching
+            switches to companion mode while you're there, and recovery follows
+            it. Mark a trip as a primary goal and the build ramps toward it.
+            Trips sync across your devices and can be exported to your iCloud
+            calendar alongside races.
+          </p>
+        </div>
+
+        <div class="faq-item">
           <h3>How does iCloud sync work?</h3>
           <p>
-            Your ride history, workouts, training plans, and athlete profiles
-            sync automatically across all your devices signed into the same
+            Your ride history, workouts, race calendar, trips, and athlete
+            profiles sync automatically across all your devices signed into the same
             iCloud account. Data is stored in your private iCloud container — it
             is never shared with us or any third party.
           </p>
@@ -142,8 +175,9 @@
           <h3>Can multiple people use TrainerKit?</h3>
           <p>
             Yes! TrainerKit supports multiple athlete profiles. Each athlete has
-            their own FTP, weight, power zones, workout history, training plans,
-            and platform connections (Strava, Intervals.icu). Switch between
+            their own FTP, weight, power zones, workout history, default bikes,
+            and platform connections (Strava, Intervals.icu, Ride with GPS).
+            Switch between
             athletes from the profile selector.
           </p>
         </div>
@@ -236,7 +270,11 @@
 
         <div class="contact-card">
           <h3>Still need help?</h3>
-          <p>Open an issue on GitHub and we'll help you out.</p>
+          <p>
+            Email
+            <a href="mailto:mike@trainerkitapp.com">mike@trainerkitapp.com</a>
+            or open an issue on GitHub and we'll help you out.
+          </p>
           <a href="https://github.com/mdwhaley/trainerkit-support/issues"
             >Open an Issue</a
           >
