@@ -1,0 +1,71 @@
+/* TrainerKit manual — page-specific layout on top of styles.css */
+.manual { padding: 40px 0 60px; }
+.manual-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.manual-nav, .manual-body { min-width: 0; }
+.manual-body h1 { font-size: 2.25rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+.manual-body .subtitle { margin-bottom: 20px; }
+.manual-body h2 { font-size: 1.5rem; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); scroll-margin-top: 24px; }
+.manual-body section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 32px; }
+.manual-body h3 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; }
+.manual-body p, .manual-body li { font-size: 1rem; }
+.manual-body strong { color: var(--text-primary); font-weight: 600; }
+.manual-body ol { color: var(--text-secondary); margin-bottom: 16px; padding-left: 24px; }
+.manual-body ol li { margin-bottom: 12px; padding-left: 4px; }
+.manual-body ol li p { margin-bottom: 6px; }
+.manual-body code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.85em; background: var(--bg-card); padding: 1px 6px; border-radius: 4px; }
+
+/* Device chips under the title */
+.device-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.device-chip { display: inline-flex; align-items: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 16px; font-size: 0.9rem; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.device-chip:hover { border-color: var(--orange); color: var(--orange); }
+
+/* Contents */
+.manual-toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 16px; }
+.manual-toc summary { cursor: pointer; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); padding: 10px 0; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+.manual-toc summary::-webkit-details-marker { display: none; }
+.manual-toc summary::after { content: "+"; font-size: 1.1rem; color: var(--text-muted); }
+.manual-toc[open] summary::after { content: "–"; }
+.manual-toc ol { list-style: none; padding: 0 0 8px; margin: 0; }
+.manual-toc li { margin: 0; }
+.manual-toc a { display: block; padding: 7px 0; font-size: 0.9rem; color: var(--text-secondary); text-decoration: none; border-top: 1px solid var(--border); }
+.manual-toc a:hover, .manual-toc a.active { color: var(--text-primary); }
+.manual-toc a.active { color: var(--orange); }
+
+/* Screenshots: modest, side by side where they fit, never wider than the column */
+.shots { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin: 8px 0 24px; }
+.shot { margin: 0; flex: 1 1 100%; min-width: 0; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card); }
+.shot figcaption { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; line-height: 1.4; }
+.shot-phone { flex: 0 1 240px; max-width: 240px; }
+.shot-wide { flex: 1 1 100%; max-width: 720px; }
+
+/* Tables scroll sideways on a phone instead of squeezing */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 8px 0 24px; border: 1px solid var(--border); border-radius: var(--radius); }
+.manual-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.9rem; }
+.manual-body th, .manual-body td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+.manual-body th { color: var(--text-primary); font-weight: 600; background: var(--bg-card); white-space: nowrap; }
+.manual-body tr:last-child td { border-bottom: none; }
+.manual-body td p, .manual-body th p { margin: 0; }
+
+/* Phone */
+@media (max-width: 640px) {
+  .manual { padding: 20px 0 40px; }
+  .manual-body h1 { font-size: 1.75rem; }
+  .manual-body h2 { font-size: 1.3rem; margin-top: 44px; }
+  .shots { gap: 12px; }
+  .shot-phone { flex: 1 1 calc(50% - 6px); max-width: calc(50% - 6px); }
+  .manual-body ol { padding-left: 20px; }
+}
+
+/* Wide: sticky contents in a side column */
+@media (min-width: 960px) {
+  .manual-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .manual-nav { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; }
+  .manual-toc summary::after { display: none; }
+  .manual-toc summary { pointer-events: none; }
+  .manual-body { max-width: 760px; }
+}
+
+/* iPad portrait shots sit between a phone and a Mac window */
+.shot-tablet { flex: 0 1 340px; max-width: 340px; }
+@media (max-width: 640px) { .shot-tablet { flex: 1 1 100%; max-width: 100%; } }
